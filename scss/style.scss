@@ -1,0 +1,433 @@
+@import url('bootstrap.min.css');
+
+/*---------------------*/
+/*---  Universal Styles ---*/
+/*---------------------*/
+
+
+*, *:before, *:after{
+  box-sizing: border-box;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+html, body {
+  /*__ sticky footer __*/
+  height: 100%;
+}
+
+$footer-size: 60px;
+
+main#content-wrapper {
+  /*__ sticky footer __*/
+  min-height: 100%;
+  margin-bottom: -$footer_size;
+}
+
+#sticky-foot-push {
+  /*__ sticky footer __*/
+  height: $footer_size;
+}
+
+/*Universal Mobile*/
+$main_content_top_padding: 66px;
+main#content-wrapper {
+  padding-top: $main_content_top_padding;
+}
+
+
+
+/*--- PHP-Wordpress Admin Styles  ---*/
+
+/*body.admin-bar{
+  padding-top: 50px;
+}*/
+
+body.admin-bar{
+  $admin_adjust: 32px;
+
+  main#content-wrapper{
+    margin-bottom: -$footer_size - $admin_adjust;
+  }
+
+  #sticky-foot-push {
+    height: $footer_size + $admin_adjust;
+  }
+
+  .admin-bar .navbar-fixed-top{
+    top: 0px;
+    border-top: 3px red solid;
+  }
+}
+
+
+
+/*--- Colors  ---*/
+$white: rgba(255,255,255,1);
+$light_gray: rgba(225,225,225,1);
+$med_gray: rgba(185,185,185,1);
+$dark_gray: rgba(91,91,91,1);
+$charcoal: rgba(50,50,50,1);
+$primary_color: rgba(52, 73, 94,1.0);
+$secondary_color: rgba(41, 128, 185,1.0);
+
+
+/*--- App Styles  ---*/
+
+/*-- Multipage--Sidebar --*/
+.sidebar{
+  padding-top: 40px;
+}
+
+.sidebar h3{
+  color: $dark_gray;
+}
+
+.sidebar p {
+  color: $med_gray;
+}
+/*-- Multipage--Navbar --*/
+
+nav.navbar {
+  background: $white;
+  padding: 5px;
+  border-bottom: #333 solid 2px;
+}
+
+nav .navbar-brand {
+  padding: 0px;
+  padding-left: 10px;
+
+}
+
+nav .navbar-brand img {
+  width: 32px;
+}
+
+nav .navbar-header,
+nav .navbar-brand,
+nav .navbar-nav {
+  position: relative;
+  background: rgba(255,255,255,1);
+  z-index: 1000;
+}
+
+nav .navbar-nav li a{
+  color: #333;
+}
+
+nav .glyphicon-menu-hamburger{
+  color: $white;
+}
+
+nav .navbar-toggle {
+  background: black;
+}
+
+nav ul.sub-menu {
+  padding-left: 20px;
+  padding-right: 10px;
+}
+
+nav .sub-menu li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+}
+
+nav .sub-menu li a {
+    color: rgba(119, 119, 119, 1);
+    font-size: 14px;
+    text-align: left;
+    text-decoration: none;
+  }
+
+nav .sub-menu li:hover a {
+  color: rgba(255,255,255,1);
+}
+
+/*-- Front Page (Landing Page) - Style  --*/
+
+/*.front-page{
+  background: url('./images/mtns_1024.jpg') 00% 00% no-repeat;
+  background-size: cover;
+}
+.fp-content-area {
+  background: url('./images/derrick-sketch.png') 83% 93% no-repeat;
+  background-size: cover;
+}
+.fp-content-area .container{
+  background: $white;
+}
+.fp-content-area p{
+  font-size: 18px;
+}*/
+
+.front-page-slider.carousel{
+  height: 200px;
+}
+
+.front-page-slider .carousel-caption{
+    background: rgba(100,100,100,.8);
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    padding: 15px;
+
+    top: 10%;
+    left: 15%;
+
+  }
+
+
+
+  /*.front-page-slider .item:nth-of-type(1) .carousel-caption {
+    top: 10%;
+    left: 15%;
+  }*/
+
+.carousel-inner,
+.item {
+  height: 100%;
+}
+
+
+
+/*-- For a blog post --*/
+
+
+/*--Single page blog....w/ comments-*/
+article.post {
+    margin-top: 60px;
+}
+
+section.blog-comment-style{
+ background: #eee;
+}
+
+section.blog-comment-style{
+ background: #eee;
+ color: #888;
+ padding: 20px;
+}
+
+section.blog-comment-style h3{
+ font-size: 21px;
+}
+
+section.blog-comment-style .logged-in-as {
+  font-style: italic;
+}
+
+section.blog-comment-style .logged-in-as a:last-of-type:before{
+  content:"|  ";
+}
+
+
+section.blog-comment-style label{
+  display: block;
+}
+
+section.blog-comment-style .form-submit {
+  text-align: right;
+}
+
+aside.comment {
+  padding: 15px 0;
+}
+
+aside.comment:nth-of-type(2n){
+  background: #fafafa;
+}
+
+/*---page-portfolio.php...Portfolio-Piece---*/
+#projects-portfolio {
+  $padding_offset: 3%;
+
+  .portfolio-piece {
+      position: relative;
+      text-align: center;
+      padding: $padding_offset ;
+    a {
+      color: $charcoal;
+      &:hover img{
+        transform: scale(1.5, 1.5);
+      }
+
+      &:hover .label-container{
+        background: $secondary_color;
+      }
+    }
+
+    .img-container {
+      overflow: hidden;
+      width: 100%;
+      img {
+        width: 100%;
+        transition: all .18s;
+      }
+    }
+
+    .label-container{
+      position: absolute;
+      top: 50%; 
+      left: $padding_offset;
+      transform: translateY(-50%);
+      width: (100% - $padding_offset*2); 
+      height: 100px;
+      background: transparentize($light_gray, .4);
+      transition: all .18s;
+    }
+
+
+  }
+}
+
+/*---single-portfolio.php...Portfolio-Piece---*/
+
+.single-portfolio h1,
+.single-portfolio .nav-arrows{
+  margin: 0;
+  padding-top: 20px;
+}
+
+.single-portfolio .feature-image img{
+  max-height: 250px;
+}
+
+.single-portfolio .nav-arrows {
+  font-size: 28px;
+}
+
+/*---page-bios...Bios---*/
+
+.bios .blurb {
+  padding: 20px 0;
+}
+.bios .blurb p{
+  font-size: 18px;
+}
+.bios .bio-text h2 {}
+.bios .bio-text p {padding-left: 20px;} 
+.bios .bio-text h4 {
+  border-left: 4px solid $secondary_color;
+  padding: 10px; background: #eee;
+}
+
+/*---Services Page---*/
+
+.services li {
+  display: inline-block;
+  background: $secondary_color;
+  padding: 4px;
+  margin: 3px;
+  color: $white;
+}
+
+
+/*--- Footer ---*/
+footer {
+  height: $footer_size;
+  background: rgba(89,91,91,1);
+  color: $white;
+
+}
+
+
+/*--- Med-Screen+ Styles  ---*/
+
+@media screen and (min-width: 768px) {  
+  
+  
+  /*styles for navbar*/
+  
+  .admin-bar .navbar-fixed-top{
+    top: 32px;
+    border-top: 3px red solid;
+  }
+
+
+
+  nav.navbar {
+  background: $white;
+  padding: 15px;
+  border-bottom: #333 solid 2px;
+  }
+
+  nav .navbar-brand {
+    position: relative;
+    left: 20px;
+    padding: 0px 0 0 00px;
+  }
+
+  nav .navbar-brand img {
+    width: 32px;
+  }
+
+  .navbar-collapse{
+    text-align: center;
+  }
+
+  nav ul.navbar-nav{
+    display: inline-block;
+    float: none;
+  }
+
+  nav ul.navbar-nav .menu-item {
+    border-left: 1px $primary_color solid;
+    border-right: 1px $primary_color solid;
+  }
+  nav ul.navbar-nav .menu-item:first-of-type {
+    border-left: 2px $primary_color solid;
+  }
+  nav ul.navbar-nav .menu-item:last-of-type {
+    border-right: 2px $primary_color solid;
+  }
+
+  nav .sub-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    min-width: 160px;
+    padding: 5px 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: rgba(34, 34, 34, 1);
+    border: 1px solid rgba(0,0,0,.15);
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  }
+
+ nav .sub-menu .menu-item:hover .sub-menu {
+    display: block;
+  }
+
+ nav .sub-menu:hover{
+    display: block;
+  }
+  
+  /*front-page */
+  .front-page-slider.carousel{
+    border-bottom: 30px $primary_color solid;
+    height: 300px;
+  }
+
+
+  .single-portfolio .feature-image img{
+    width: 100%;
+    max-width: 512px;
+    max-height: 100%;
+  }
+
+}
+
